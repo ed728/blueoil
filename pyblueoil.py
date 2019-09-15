@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import click
+import time
 
 CTX = dict(help_option_names=['-h', '--help'])
 
@@ -28,9 +29,22 @@ def init(output):
 
 
 @cli.command()
-@click.argument('config-file')
-@click.option('--output-dir', '-o', type=click.Path(exists=True), help='Directory to save generated files in.')
-@click.option('--experiment-id', '--id', help='ID to associate this project with.')
+@click.argument(
+        'config-file',
+        type=click.File('rb')
+)
+@click.option(
+        '--output-dir',
+        '-o',
+        type=click.Path(exists=True),
+        help='Directory to save generated files in.'
+)
+@click.option(
+        '--experiment-id',
+        '--id',
+        default=lambda: time.time(),
+        help='ID to associate this project with.'
+)
 def train(config_file, output_dir, experiment_id):
     """
     Trains a neural network based on a given configuration file.
@@ -38,9 +52,22 @@ def train(config_file, output_dir, experiment_id):
     pass
 
 @cli.command()
-@click.argument('config-file', type=click.File())
-@click.option('--experiment-dir', '-e', type=click.Path(exists=True), required=True)
-@click.option('--checkpoint', '-c', type=int, help='Checkpoint number to be used.')
+@click.argument(
+        'config-file',
+        type=click.File('rb')
+)
+@click.option(
+        '--experiment-dir',
+        '-e',
+        type=click.Path(exists=True),
+        required=True
+)
+@click.option(
+        '--checkpoint',
+        '-c',
+        type=int
+        help='Checkpoint number to be used.'
+)
 def convert(config_file, experiment_dir, checkpoint):
     """
     Converts a trained neural network into a deplyable runtime.
