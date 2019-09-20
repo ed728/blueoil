@@ -34,12 +34,6 @@ def init(output):
         type=click.File('rb')
 )
 @click.option(
-        '--output-dir',
-        '-o',
-        type=click.Path(exists=True),
-        help='Directory to save generated files in.'
-)
-@click.option(
         '--experiment-id',
         '--id',
         default=lambda: time.time(),
