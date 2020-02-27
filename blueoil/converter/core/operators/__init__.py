@@ -21,3 +21,6 @@ from .base import Operator, Add, Gemm, Mul,\
     Reshape, Flatten, ConcatOnDepth, DepthToSpace, ResizeNearestNeighbor,\
     Split, Pad, Shape, StridedSlice, Variable, Input, Constant, Output
 from .convpool import Conv, Pool, MaxPool, AveragePool
+from .quantization import Quantizer, BinaryMeanScalingQuantizer,\
+    QTZ_linear_mid_tread_half, BinaryChannelWiseMeanScalingQuantizer,\
+    Lookup

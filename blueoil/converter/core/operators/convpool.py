@@ -15,7 +15,7 @@
 # =============================================================================
 """Definition of operators."""
 from .base import *
-
+from quantization import Quantizer
 from typing import Any, Dict, Optional
 
 Ops = Dict[str, 'Operator']
