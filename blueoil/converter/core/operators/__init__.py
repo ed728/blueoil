@@ -13,10 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # =============================================================================
-from .base import Operator, Conv, Pool, MaxPool, AveragePool, Add, Gemm, Mul,\
+from .base import Operator, Add, Gemm, Mul,\
     Maximum, MatMul, Minimum, Identity, BatchNormalization, Dropout, Gather,\
     Unique, Cast, Prod, BatchNormalizationOptimized, Softmax, Relu, LeakyRelu,\
     Quantizer, QTZ_binary_mean_scaling, QTZ_linear_mid_tread_half,\
     QTZ_binary_channel_wise_mean_scaling, Lookup, SpaceToDepth, Transpose,\
     Reshape, Flatten, ConcatOnDepth, DepthToSpace, ResizeNearestNeighbor,\
     Split, Pad, Shape, StridedSlice, Variable, Input, Constant, Output
+from .convpool import Conv, Pool, MaxPool, AveragePool
